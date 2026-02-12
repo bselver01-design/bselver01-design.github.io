@@ -1,1 +1,217 @@
-index.html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sporcu Sağlığı Bilgi Merkezi</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    /* HEADER */
+    header {
+      background: #111;
+      color: white;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Hamburger icon */
+    .menu-btn {
+      font-size: 28px;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+
+    header h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    /* SIDE MENU */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #222;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+    }
+
+    .side-menu a {
+      padding: 12px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: block;
+    }
+
+    .side-menu a:hover {
+      background: orange;
+      color: black;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: url("https://images.unsplash.com/photo-1599058917212-d750089bc07d?auto=format&fit=crop&w=1400&q=80");
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 35px;
+      background: rgba(0,0,0,0.6);
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    /* CONTENT */
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #111;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #25D366;
+      color: white;
+      font-size: 28px;
+      padding: 15px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <span class="menu-btn" onclick="openMenu()">☰</span>
+    <h1>Sporcu Sağlığı Bilgi Merkezi</h1>
+  </header>
+
+  <!-- SIDE MENU -->
+  <div id="menu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">×</span>
+    <a href="#">Ana Sayfa</a>
+    <a href="#">Hormonlar</a>
+    <a href="#">Yan Etkiler</a>
+    <a href="#">Doğal Alternatifler</a>
+    <a href="#">İletişim</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2>Bilimsel Bilgi • Sporcu Sağlığı • Hormon Sistemi</h2>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <h2>Hoş Geldin 👋</h2>
+    <p>
+      Bu site sporcu sağlığı, hormon sistemi ve performans artırıcı maddelerin
+      riskleri hakkında bilgilendirme amacıyla hazırlanmıştır.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>🧬 Hormonlar</h3>
+        <p>Testosteron, LH, FSH gibi hormonların vücuttaki rolü.</p>
+      </div>
+
+      <div class="card">
+        <h3>⚠️ Yan Etkiler</h3>
+        <p>Anabolik steroidlerin kalp, karaciğer ve psikoloji üzerindeki riskleri.</p>
+      </div>
+
+      <div class="card">
+        <h3>💪 Doğal Alternatifler</h3>
+        <p>Sağlıklı kas gelişimi için antrenman ve beslenme yöntemleri.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- WhatsApp Button -->
+  <!-- NUMARAYI BURAYA YAZACAKSIN -->
+  <a class="whatsapp" 
+     href="https://wa.me/905345872637
+     target="_blank">
+     💬
+  </a>
+
+  <footer>
+    © 2026 Sporcu Sağlığı Bilgi Merkezi | Bilgilendirme Amaçlıdır
+  </footer>
+
+  <script>
+    function openMenu() {
+      document.getElementById("menu").style.width = "250px";
+    }
+
+    function closeMenu() {
+      document.getElementById("menu").style.width = "0";
+    }
+  </script>
+
+</body>
+</html>
