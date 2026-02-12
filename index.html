@@ -1,124 +1,107 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sporcu Sağlığı Bilgi Merkezi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NaturPrime Bilgi Merkezi</title>
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-    }
-
-    /* HEADER */
-    header {
-      background: #111;
+      background: #0b0b0b;
       color: white;
-      padding: 15px;
-      display: flex;
-      align-items: center;
     }
 
-    /* Hamburger icon */
-    .menu-btn {
-      font-size: 28px;
-      cursor: pointer;
-      margin-right: 15px;
+    header {
+      background: black;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid orange;
+    }
+
+    header img {
+      width: 180px;
+      border-radius: 50%;
+      border: 3px solid orange;
     }
 
     header h1 {
-      font-size: 18px;
+      margin: 15px 0 5px;
+      font-size: 28px;
+      color: orange;
+    }
+
+    header p {
       margin: 0;
+      font-size: 15px;
+      color: #ccc;
     }
 
-    /* SIDE MENU */
-    .side-menu {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background: #222;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-    }
-
-    .side-menu a {
-      padding: 12px 20px;
-      text-decoration: none;
-      font-size: 18px;
-      color: white;
-      display: block;
-    }
-
-    .side-menu a:hover {
-      background: orange;
-      color: black;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 30px;
-      cursor: pointer;
-      color: white;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      background: url("https://images.unsplash.com/photo-1599058917212-d750089bc07d?auto=format&fit=crop&w=1400&q=80");
-      height: 350px;
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-
-    .hero h2 {
-      font-size: 35px;
-      background: rgba(0,0,0,0.6);
-      padding: 15px;
-      border-radius: 10px;
-    }
-
-    /* CONTENT */
     main {
       max-width: 1000px;
       margin: auto;
-      padding: 20px;
+      padding: 25px;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
     }
 
     .card {
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      background: #151515;
+      padding: 18px;
+      border-radius: 15px;
+      border: 1px solid #333;
+      box-shadow: 0 0 12px rgba(255,165,0,0.15);
       transition: 0.2s;
     }
 
     .card:hover {
       transform: scale(1.03);
+      border-color: orange;
     }
 
-    .card h3 {
+    .card h2 {
+      color: orange;
       margin-top: 0;
-      color: #111;
+      font-size: 20px;
     }
 
-    /* WhatsApp Floating Button */
+    .warning {
+      margin-top: 30px;
+      padding: 15px;
+      border-radius: 12px;
+      background: #2a0000;
+      border: 1px solid red;
+      color: #ffcccc;
+    }
+
+    .contact {
+      margin-top: 40px;
+      padding: 20px;
+      border-radius: 15px;
+      background: #111;
+      border: 1px solid #333;
+    }
+
+    .contact h2 {
+      color: orange;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      background: black;
+      border-top: 2px solid orange;
+      color: #aaa;
+    }
+
+    /* WhatsApp Button */
     .whatsapp {
       position: fixed;
       bottom: 20px;
@@ -129,15 +112,7 @@
       padding: 15px;
       border-radius: 50%;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    footer {
-      margin-top: 40px;
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
   </style>
 </head>
@@ -146,72 +121,95 @@
 
   <!-- HEADER -->
   <header>
-    <span class="menu-btn" onclick="openMenu()">☰</span>
-    <h1>Sporcu Sağlığı Bilgi Merkezi</h1>
+    <!-- Goril Fotoğraf -->
+    <img src="https://i.ibb.co/0G3zY7P/gorilla.png" alt="Goril Logo">
+
+    <h1>NaturPrime</h1>
+    <p>Sporcu Sağlığı • Hormonlar • Bilgilendirme Merkezi</p>
   </header>
 
-  <!-- SIDE MENU -->
-  <div id="menu" class="side-menu">
-    <span class="close-btn" onclick="closeMenu()">×</span>
-    <a href="#">Ana Sayfa</a>
-    <a href="#">Hormonlar</a>
-    <a href="#">Yan Etkiler</a>
-    <a href="#">Doğal Alternatifler</a>
-    <a href="#">İletişim</a>
-  </div>
-
-  <!-- HERO -->
-  <div class="hero">
-    <h2>Bilimsel Bilgi • Sporcu Sağlığı • Hormon Sistemi</h2>
-  </div>
-
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main>
-    <h2>Hoş Geldin 👋</h2>
+
+    <h2 style="color:orange;">Bilgilendirme Başlıkları</h2>
     <p>
-      Bu site sporcu sağlığı, hormon sistemi ve performans artırıcı maddelerin
-      riskleri hakkında bilgilendirme amacıyla hazırlanmıştır.
+      Bu sayfa performans artırıcı maddeler hakkında yalnızca genel bilgilendirme amaçlıdır.
+      Kullanım, doz veya kür önerisi içermez.
     </p>
 
     <div class="cards">
+
       <div class="card">
-        <h3>🧬 Hormonlar</h3>
-        <p>Testosteron, LH, FSH gibi hormonların vücuttaki rolü.</p>
+        <h2>Follistatin 344</h2>
+        <p>
+          Follistatin, kas büyümesiyle ilişkili olan myostatin baskılanması üzerinde araştırılan
+          deneysel bir proteindir. İnsanlarda güvenliği net değildir.
+        </p>
       </div>
 
       <div class="card">
-        <h3>⚠️ Yan Etkiler</h3>
-        <p>Anabolik steroidlerin kalp, karaciğer ve psikoloji üzerindeki riskleri.</p>
+        <h2>Anavar (Oxandrolone)</h2>
+        <p>
+          Oxandrolone tıbbi amaçlarla geliştirilmiş anabolik bir steroiddir.
+          Karaciğer ve hormon sistemi üzerinde ciddi yan etkileri olabilir.
+        </p>
       </div>
 
       <div class="card">
-        <h3>💪 Doğal Alternatifler</h3>
-        <p>Sağlıklı kas gelişimi için antrenman ve beslenme yöntemleri.</p>
+        <h2>Primabolan</h2>
+        <p>
+          Primabolan, kas gelişimi için bilinen anabolik steroidlerden biridir.
+          Uzun vadeli kullanımı kalp-damar risklerini artırabilir.
+        </p>
       </div>
+
+      <div class="card">
+        <h2>Proviron</h2>
+        <p>
+          Proviron androjenik özellikleri olan bir bileşiktir.
+          Hormon dengesini etkileyebilir ve doktor kontrolü olmadan risklidir.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Clenbuterol</h2>
+        <p>
+          Clenbuterol aslında bir solunum ilacıdır ancak kötüye kullanımı yaygındır.
+          Kalp ritim bozuklukları ve ciddi yan etkilere yol açabilir.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>IGF Hormonu</h2>
+        <p>
+          IGF-1 büyüme faktörü vücutta hücre büyümesini etkiler.
+          Dışarıdan müdahale ciddi sağlık riskleri taşır.
+        </p>
+      </div>
+
     </div>
+
+    <div class="warning">
+      ⚠️ <b>Uyarı:</b> Bu içerikler tıbbi tavsiye değildir. Steroid ve hormonlarla ilgili
+      kararlar doktor kontrolü olmadan alınmamalıdır.
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact">
+      <h2>İletişim</h2>
+      <p><b>Telefon:</b> +90 534 587 2637</p>
+      <p><b>E-mail:</b> primenatur0@gmail.com</p>
+    </div>
+
   </main>
 
   <!-- WhatsApp Button -->
-  <!-- NUMARAYI BURAYA YAZACAKSIN -->
-  <a class="whatsapp" 
-     href="https://wa.me/905345872637"
-     target="_blank">
-     💬
-  </a>
+  <a class="whatsapp" href="https://wa.me/905345872637" target="_blank">💬</a>
 
+  <!-- FOOTER -->
   <footer>
-    © 2026 Sporcu Sağlığı Bilgi Merkezi | Bilgilendirme Amaçlıdır
+    © 2026 NaturPrime | Bilgilendirme Amaçlıdır
   </footer>
-
-  <script>
-    function openMenu() {
-      document.getElementById("menu").style.width = "250px";
-    }
-
-    function closeMenu() {
-      document.getElementById("menu").style.width = "0";
-    }
-  </script>
 
 </body>
 </html>
