@@ -3,188 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GORILLA GENETICS | LIMITLESS POWER</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <title>GORILLA GENETICS | BİYOLOJİK ÜSTÜNLÜK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@300;400;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --red: #ff0000;
-            --bg: #050505;
-            --card: #111111;
-            --gray: #888;
+            --red: #d50000;
+            --bg: #000000;
+            --card: #0c0c0c;
+            --border: #1a1a1a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; line-height: 1.5; }
+        body { background: var(--bg); color: #fff; font-family: 'Roboto', sans-serif; line-height: 1.6; }
 
-        /* --- SERT AÇILIŞ (GORİL VE ZİNCİRLER) --- */
+        /* --- SENARYO AÇILIŞ --- */
         .hero {
             height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1574673139011-570220a2c9b9?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
             text-align: center;
-            padding: 30px;
         }
 
-        .hero-inner { max-width: 800px; border-top: 5px solid var(--red); padding-top: 40px; }
-        
-        .gorilla-txt { font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--red); letter-spacing: 5px; margin-bottom: 10px; }
-        h1 { font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 25px; text-transform: uppercase; }
-        .scenario-text { font-size: 1.1rem; color: #ccc; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .highlight { color: var(--red); font-weight: 900; }
+        .hero-inner { max-width: 900px; padding: 20px; }
+        .hero-inner h1 { font-family: 'Oswald', sans-serif; font-size: 4rem; color: var(--red); margin-bottom: 20px; text-transform: uppercase; }
+        .scenario { font-size: 1.2rem; font-weight: 300; letter-spacing: 1px; color: #eee; }
+        .highlight { color: var(--red); font-weight: 900; border-bottom: 2px solid var(--red); }
 
-        /* --- ÜRÜNLER (TEMİZ VE MASKÜLEN) --- */
-        .content { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
-        
-        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        /* --- BİLİMSEL İÇERİK --- */
+        .content { max-width: 1200px; margin: 0 auto; padding: 100px 20px; }
 
-        .card {
-            background: var(--card);
-            border: 1px solid #222;
-            overflow: hidden;
+        .product-box {
             display: flex;
             flex-direction: column;
-            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: var(--card);
+            border: 1px solid var(--border);
+            margin-bottom: 80px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .card:hover { border-color: var(--red); transform: translateY(-10px); }
+        @media (min-width: 900px) {
+            .product-box { flex-direction: row; align-items: stretch; }
+            .product-box:nth-child(even) { flex-direction: row-reverse; }
+        }
 
-        .card-img {
-            width: 100%;
-            height: 300px;
-            background: #fff;
+        .product-img {
+            flex: 1;
+            background: #fff; /* Ürün fotoğrafları genelde beyaz fonlu olduğu için */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 30px;
+            padding: 40px;
         }
 
-        .card-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .product-img img { max-width: 100%; height: auto; object-fit: contain; }
 
-        .card-body { padding: 30px; }
-        .card-body h2 { font-family: 'Oswald', sans-serif; font-size: 1.8rem; margin-bottom: 15px; border-left: 4px solid var(--red); padding-left: 15px; }
-        .card-body p { color: var(--gray); font-size: 0.95rem; margin-bottom: 15px; }
+        .product-info { flex: 1.5; padding: 50px; }
+        .product-info h2 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: var(--red); margin-bottom: 20px; text-transform: uppercase; }
+        .scientific-text { font-size: 1rem; color: #bbb; margin-bottom: 25px; text-align: justify; border-left: 3px solid var(--red); padding-left: 20px; }
         
-        .stats { list-style: none; font-weight: 700; color: #fff; font-size: 0.9rem; }
-        .stats li { margin-bottom: 8px; display: flex; align-items: center; }
-        .stats li::before { content: ""; width: 8px; height: 8px; background: var(--red); margin-right: 10px; }
+        .bullets { list-style: none; }
+        .bullets li { margin-bottom: 10px; font-weight: 700; font-size: 1.1rem; color: #fff; }
+        .bullets li::before { content: "› "; color: var(--red); font-size: 1.5rem; }
 
-        footer { text-align: center; padding: 60px; border-top: 1px solid #222; margin-top: 50px; }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .product-grid { grid-template-columns: 1fr; }
-        }
+        footer { text-align: center; padding: 80px; border-top: 1px solid var(--border); background: #050505; }
     </style>
 </head>
 <body>
 
     <section class="hero">
         <div class="hero-inner">
-            <p class="gorilla-txt">🦍 ZİNCİRLERİNDEN KURTUL</p>
-            <h1>DURDURULAMAZ BİR <span class="highlight">MAKİNE</span></h1>
-            <p class="scenario-text">
-                Kür’e başlıyorsun… ama yan etkilerinden korkuyor musun? <br>
-                <span class="highlight">Toplarının fındık kadar kalmasından endişeleniyor musun?</span> <br>
-                Piyasadaki steroidleri bir kenara at. 
+            <h1>GORILLA GENETICS</h1>
+            <p class="scenario">
+                Kür’e başlıyorsun… ama yan etkilerinden korkuyor musun? 
+                <br>Toplarının <span class="highlight">fındık kadar</span> kalmasından endişeleniyor musun? 
+                <br>Piyasadaki steroidleri bi kenara at. Amacımız seni sıradan birinden 
+                <br><span class="highlight">DURDURULAMAZ BİR MAKİNEYE</span> dönüştürmek.
+                <br><br>
+                Natural sınırın sonunda mısın? Hiç spor yapmadın mı? 
+                <br>HİÇ MERAK ETME, HER ŞEY KONTROLÜM ALTINDA.
+                <br><br>
+                <span style="font-size: 1.5rem; font-weight: 900;">DEĞİŞMEYE CESARETİN VAR MI?</span>
             </p>
-            <p class="scenario-text">
-                Natural sınırın sonuna mı geldin? Hiç spor yapmadın mı? <br>
-                Hiç merak etme, her şey kontrolüm altında. 
-            </p>
-            <h2 style="font-size: 1.5rem; color: #fff;">DEĞİŞMEYE CESARETİN VAR MI?</h2>
         </div>
     </section>
 
     <div class="content">
-        <div class="product-grid">
-            
-            <div class="card">
-                <div class="card-img"><img src="image.png" alt="Follistatin 344"></div>
-                <div class="card-body">
-                    <h2>FOLLISTATIN 344</h2>
-                    <p>Genetik sınırlarını silip atan, myostatin engelini kaldıran yegane peptit. Saf kas inşasında son nokta.</p>
-                    <ul class="stats">
-                        <li>LİMİTSİZ KAS BÜYÜMESİ</li>
-                        <li>GENETİK SINIRLARI PARÇALAR</li>
-                        <li>YAĞSIZ HACİM ARTIŞI</li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="card-img"><img src="image (1).png" alt="Proviron"></div>
-                <div class="card-body">
-                    <h2>PROVIRON</h2>
-                    <p>Maskülen enerjinin anahtarı. Küründeki verimi %100 artırırken vücudu beton gibi sertleştirir.</p>
-                    <ul class="stats">
-                        <li>SERBEST TESTOSTERON ARTIŞI</li>
-                        <li>AŞIRI KAS SERTLİĞİ</li>
-                        <li>LİBİDO VE GÜÇ ZİRVESİ</li>
-                    </ul>
-                </div>
+        <div class="product-box">
+            <div class="product-img">
+                <img src="image.png" alt="Follistatin 344">
             </div>
-
-            <div class="card">
-                <div class="card-img"><img src="https://placehold.co/400x400/fff/000?text=ANAVAR" alt="Anavar"></div>
-                <div class="card-body">
-                    <h2>ANAVAR (OXANDROLONE)</h2>
-                    <p>Güç ve estetiğin mükemmel dengesi. Patlayıcı kuvvet sağlarken derini inceltip damarlarını çıkarır.</p>
-                    <ul class="stats">
-                        <li>PATLAYICI KUVVET</li>
-                        <li>VASKÜLARİTE (DAMARLANMA)</li>
-                        <li>HIZLI YAĞ YAKIMI</li>
-                    </ul>
-                </div>
+            <div class="product-info">
+                <h2>FOLLISTATIN 344</h2>
+                <p class="scientific-text">
+                    Follistatin, insan vücudunda bulunan doğal bir glikoproteindir. Bilimsel mekanizması, kas büyümesini kısıtlayan bir TGF-beta üyesi olan **Myostatin** proteinine bağlanarak onu inhibe etmeye (etkisiz hale getirmeye) dayanır. Bu peptid, folikül uyarıcı hormonun salınımını baskılamakla kalmaz, aynı zamanda iskelet kası kütlesinde hipertrofiyi (hücre büyümesi) ve hiperplaziyi (yeni hücre oluşumu) tetikleyen anabolik bir sinyal yolunu aktive eder.
+                </p>
+                <ul class="bullets">
+                    <li>Myostatin blokajı ile sınırsız hipertrofi.</li>
+                    <li>Aktvin bağlama kapasitesi ile protein sentezinde %300 artış.</li>
+                    <li>Yeni uydu hücrelerinin kas liflerine dönüşümü.</li>
+                    <li>Yağ oksidasyonu ve bazal metabolizma hızında hücresel artış.</li>
+                </ul>
             </div>
-
-            <div class="card">
-                <div class="card-img"><img src="https://placehold.co/400x400/fff/000?text=PRIMOBOLAN" alt="Primobolan"></div>
-                <div class="card-body">
-                    <h2>PRIMOBOLAN</h2>
-                    <p>Kaliteli kas kütlesinin değişmez adresi. Vücutta su tutmadan, kalıcı ve estetik bir form kazandırır.</p>
-                    <ul class="stats">
-                        <li>TEMİZ KAS KÜTLESİ</li>
-                        <li>SIFIR SU TUTUMU</li>
-                        <li>ESTETİK VE KALICI FORM</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img"><img src="https://placehold.co/400x400/fff/000?text=IGF-1" alt="IGF-1"></div>
-                <div class="card-body">
-                    <h2>IGF-1 HORMONU</h2>
-                    <p>Hücresel devrim. Sadece büyütmez, yeni kas lifleri oluşturarak biyolojini yeniden yazar.</p>
-                    <ul class="stats">
-                        <li>YENİ KAS LİFİ OLUŞUMU</li>
-                        <li>HÜCRESEL YENİLENME</li>
-                        <li>SÜPER HIZLI RECOVERY</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img"><img src="https://placehold.co/400x400/fff/000?text=CLENBUTEROL" alt="Clenbuterol"></div>
-                <div class="card-body">
-                    <h2>CLENBUTEROL</h2>
-                    <p>Metabolik fırın. Yağları yakıt olarak kullanmanı sağlayarak seni kupkuru bir görünüme sokar.</p>
-                    <ul class="stats">
-                        <li>METABOLİZMA ATEŞLEYİCİ</li>
-                        <li>DERİ ALTI YAĞ ERİTME</li>
-                        <li>MAKSİMUM KONDİSYON</li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
+
+        <div class="product-box">
+            <div class="product-img">
+                <img src="image (1).png" alt="Proviron Bayer">
+            </div>
+            <div class="product-info">
+                <h2>PROVIRON (MESTEROLONE)</h2>
+                <p class="scientific-text">
+                    Mesterolone, 1-metillenmiş bir dihidrotestosteron (DHT) türevidir. Bu maddeyi özel kılan, SHBG (Seks Hormonu Bağlayıcı Globulin) proteinine olan aşırı yüksek afinitesidir. SHBG'ye bağlanarak, dolaşımdaki serbest testosteron miktarını biyoyararlanım açısından artırır. Östrojene dönüşmeyen (aromatize olmayan) yapısı sayesinde, kürlerdeki östrojenik yan etkileri maskelemeden doğrudan androjenik aktiviteyi (sertlik, güç, libido) maksimize eder.
+                </p>
+                <ul class="bullets">
+                    <li>Serbest testosteron havuzunun genişletilmesi.</li>
+                    <li>Androjen reseptörlerine doğrudan bağlanarak kas yoğunluğu artışı.</li>
+                    <li>Sertleşme ve maskülen karakterizasyonda hormonal optimizasyon.</li>
+                    <li>Su tutumunu engelleyen anti-östrojenik karakter.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-box">
+            <div class="product-img">
+                <img src="https://placehold.co/400x400/fff/000?text=ANAVAR" alt="Anavar">
+            </div>
+            <div class="product-info">
+                <h2>ANAVAR (OXANDROLONE)</h2>
+                <p class="scientific-text">
+                    Oxandrolone, C-17 alfa-alkillenmiş bir oral anabolik steroiddir. Diğer oral steroidlerin aksine, karaciğerde metilasyon sürecinden geçerken renal (böbrek) yolla daha fazla elimine edilir, bu da hepatotoksisiteyi nispeten yönetilebilir kılar. Moleküler yapısı, kreatin fosfat sentezini hızlandırarak ATP depolarını yeniler. Bu da su tutmadan, saf güç ve kas sertliği (muscle hardness) sağlar.
+                </p>
+                <ul class="bullets">
+                    <li>ATP sentezi ile patlayıcı kuvvet artışı.</li>
+                    <li>Negatif nitrojen dengesini pozitife çevirerek antikatabolik koruma.</li>
+                    <li>Deri altı lipoliz (yağ yakımı) süreçlerinin hızlanması.</li>
+                    <li>Vaskülariteyi artıran periferik damar genişlemesi.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-box">
+            <div class="product-img">
+                <img src="https://placehold.co/400x400/fff/000?text=PRIMOBOLAN" alt="Primobolan">
+            </div>
+            <div class="product-info">
+                <h2>PRIMOBOLAN (METHENOLONE)</h2>
+                <p class="scientific-text">
+                    Methenolone, anabolik indeksi yüksek, androjenik etkisi ise oldukça dengeli bir DHT türevidir. Nitrojen tutulumunu en üst seviyeye çıkararak, düşük kalorili dönemlerde bile azot dengesini korur. Bu madde, immün sistemi destekleyici etkisiyle bilinen nadir anaboliklerden biridir. Östrojene dönüşmediği için jinekomasti veya ödem riski taşımaz; "temiz ve estetik" kas inşasının altın standardıdır.
+                </p>
+                <ul class="bullets">
+                    <li>Yüksek azot tutulumu ile kalıcı kas kütlesi.</li>
+                    <li>Sıfır aromatizasyon (östrojen artışı yapmaz).</li>
+                    <li>Kas dokusunda yüksek yoğunluk ve definasyon.</li>
+                    <li>Kortizol baskılama yoluyla kas koruyucu etki.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-box">
+            <div class="product-img">
+                <img src="https://placehold.co/400x400/fff/000?text=IGF-1" alt="IGF-1">
+            </div>
+            <div class="product-info">
+                <h2>IGF-1 LR3 (GROWTH FACTOR)</h2>
+                <p class="scientific-text">
+                    İnsülin Benzeri Büyüme Faktörü-1'in LR3 versiyonu, moleküler yapısındaki değişim sayesinde vücuttaki yarı ömrünü 20 saate kadar çıkarır. Mekanizması, kas hücrelerinde **hiperplazi** yani mevcut hücrelerin büyümesi yerine yeni hücre çekirdeklerinin oluşmasını tetiklemektir. Amino asit transportunu ve glukoz alımını stabilize ederek, iskelet kaslarında kalıcı ve nitelikli bir hacim artışı meydana getirir.
+                </p>
+                <ul class="bullets">
+                    <li>Hücresel hiperplazi (Yeni kas lifi oluşumu).</li>
+                    <li>İnsülin duyarlılığı ve besin transportu optimizasyonu.</li>
+                    <li>Bağ dokusu ve tendon rejenerasyon hızı.</li>
+                    <li>Vücut kompozisyonunda radikal anabolik değişim.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-box">
+            <div class="product-img">
+                <img src="https://placehold.co/400x400/fff/000?text=CLENBUTEROL" alt="Clenbuterol">
+            </div>
+            <div class="product-info">
+                <h2>CLENBUTEROL (BETA-2 AGONIST)</h2>
+                <p class="scientific-text">
+                    Clenbuterol bir steroid değil, sempatomimetik bir beta-2 adrenerjik reseptör agonistidir. Vücutta termojenezi (ısı üretimi) tetiklemek için mitokondriyal seviyede yağ asitlerinin serbest kalmasını sağlar. Vücut sıcaklığını yaklaşık 0.5-1 derece artırarak bazal metabolizma hızını (BMR) devasa boyutlara çıkarır. Aynı zamanda bronkodilatör etkisiyle oksijen taşıma kapasitesini maksimize eder.
+                </p>
+                <ul class="bullets">
+                    <li>Maksimum termojenik yağ oksidasyonu.</li>
+                    <li>Oksijen saturasyonu ve aerobik kapasite artışı.</li>
+                    <li>Hafif anabolik etki ile kas kaybının önlenmesi.</li>
+                    <li>Merkezi sinir sistemi aktivasyonu ve odaklanma.</li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
     <footer>
-        <p style="color: var(--red); font-weight: 900; font-size: 1.2rem;">YAN ETKİSİ OLMAYAN STEROIDLER</p>
-        <p style="margin-top: 10px; color: #444;">GORILLA GENETICS © 2026 - PROJE ÖDEVİ</p>
+        <h2 style="color: var(--red); font-family: 'Oswald';">YAN ETKİSİ OLMAYAN STEROIDLER</h2>
+        <p style="color: #666; margin-top: 20px;">BU BİR PROJE ÖDEVİDİR. BİLİMSEL VERİLER BİLGİLENDİRME AMAÇLIDIR.</p>
     </footer>
 
 </body>
