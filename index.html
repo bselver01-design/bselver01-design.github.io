@@ -1,206 +1,349 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doping Pazarlamasının Maskesi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anabolik Gerçekler - Risk ve Analiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* GENEL AYARLAR */
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-red: #d32f2f;
+            --accent-hover: #b71c1c;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #050505;
-      color: white;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-      position: relative;
-      height: 420px;
-      background: url("https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&w=1400&q=80");
-      background-size: cover;
-      background-position: center;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    header .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-    }
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    header h1 {
-      font-size: 40px;
-      color: orange;
-      margin-bottom: 10px;
-    }
+        /* HEADER / HERO BÖLÜMÜ */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 20px;
+        }
 
-    header p {
-      font-size: 18px;
-      color: #ddd;
-      max-width: 750px;
-      line-height: 1.5;
-    }
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
 
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 30px;
-    }
+        header p {
+            font-size: 1.5rem;
+            color: var(--accent-red);
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
 
-    .section-title {
-      color: orange;
-      font-size: 26px;
-      margin-top: 40px;
-    }
+        .scroll-down {
+            margin-top: 50px;
+            animation: bounce 2s infinite;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
+        /* TIBBİ UYARI BANDI */
+        .medical-warning {
+            background-color: var(--accent-red);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
 
-    .card {
-      background: #121212;
-      border: 1px solid #333;
-      border-radius: 15px;
-      padding: 18px;
-      box-shadow: 0 0 12px rgba(255,165,0,0.15);
-    }
+        /* İÇERİK KONTEYNERİ */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
 
-    .card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 12px;
-    }
+        /* ÜRÜN KARTLARI */
+        .substance-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--card-bg);
+            margin-bottom: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
 
-    .card h2 {
-      color: orange;
-      margin: 0;
-    }
+        .substance-section:hover {
+            transform: translateY(-5px);
+        }
 
-    .card p {
-      color: #ccc;
-      line-height: 1.5;
-    }
+        /* Zikzak Düzen (Sağ-Sol Resim) */
+        .substance-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
 
-    .truth-box {
-      margin-top: 35px;
-      padding: 20px;
-      border-radius: 15px;
-      background: #2a0000;
-      border: 1px solid red;
-      color: #ffcccc;
-    }
+        .image-box {
+            flex: 1;
+            height: 400px;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    footer {
-      margin-top: 50px;
-      text-align: center;
-      padding: 18px;
-      background: black;
-      border-top: 2px solid orange;
-      color: #aaa;
-    }
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Resmin tamamı görünsün diye */
+            padding: 20px;
+            background-color: #fff; /* Ürünler genelde beyaz fonlu olduğu için */
+        }
 
-    .contact {
-      margin-top: 40px;
-      padding: 20px;
-      background: #111;
-      border-radius: 15px;
-      border: 1px solid #333;
-    }
+        .info-box {
+            flex: 1.2;
+            padding: 40px;
+        }
 
-    .contact b {
-      color: orange;
-    }
-  </style>
+        .info-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+            border-bottom: 2px solid var(--accent-red);
+            display: inline-block;
+        }
+
+        .desc {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        /* ZARARLAR KUTUSU */
+        .danger-zone {
+            background: rgba(211, 47, 47, 0.1);
+            border-left: 4px solid var(--accent-red);
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .danger-zone h3 {
+            color: var(--accent-red);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .danger-zone ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .danger-zone li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            color: #ffcccc;
+        }
+
+        .danger-zone li::before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #000;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.8rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Ayarlar */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .substance-section { flex-direction: column !important; }
+            .image-box { width: 100%; height: 300px; }
+            .info-box { width: 100%; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- CINEMATIC INTRO -->
-  <header>
-    <div class="overlay">
-      <div>
-        <h1>Doping Pazarlamasının Maskesi</h1>
-        <p>
-          (Fitness salonu. Güçlü bir goril zincirlerle çekiliyor.)<br><br>
-          Sosyal medyada sana şöyle sesleniyorlar:<br>
-          “Kür’e başlıyorsun… ama korkuyor musun?”<br><br>
-          Bu proje, performans artırıcı maddeleri “masum” göstermeye çalışan
-          satıcı dilinin nasıl manipülatif olduğunu göstermek için hazırlanmıştır.
-        </p>
-      </div>
-    </div>
-  </header>
-
-  <main>
-
-    <h2 class="section-title">Satıcı Ne Söyler? Gerçekte Ne Olur?</h2>
-
-    <div class="truth-box">
-      ⚠️ Gerçek: “Yan etkisi olmayan steroid” diye bir şey yoktur.  
-      Bu maddeler hormon sistemini, kalbi, karaciğeri ve psikolojiyi etkileyebilir.
-      Bu site kullanım teşvik etmez, yalnızca bilinçlendirme amaçlıdır.
+    <div class="medical-warning">
+        DİKKAT: Bu site sadece bilgilendirme amaçlıdır. Madde kullanımını teşvik etmez. Bahsedilen maddeler ciddi sağlık sorunlarına yol açabilir.
     </div>
 
-    <h2 class="section-title">Örnek Maddeler (Bilgilendirme)</h2>
+    <header>
+        <h1>BEDEL VE GÜÇ</h1>
+        <p>KİMYASAL GERÇEKLER VE GİZLENEN ZARARLAR</p>
+        <div class="scroll-down">▼</div>
+    </header>
 
-    <div class="cards">
+    <div class="container">
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07d?auto=format&fit=crop&w=800&q=80">
-        <h2>Anavar (Oxandrolone)</h2>
-        <p>
-          Pazarlamada “hafif ve güvenli” gibi gösterilse de,
-          karaciğer enzimi ve sperm hacminde azalma görülebilir
-        </p>
-      </div>
+        <section class="substance-section">
+            <div class="image-box">
+                <img src="image.png" alt="Follistatin 344">
+            </div>
+            <div class="info-box">
+                <h2>Follistatin 344</h2>
+                <p class="desc">Myostatin inhibitörü olarak bilinen, kas büyümesini sınırlayan proteinleri baskılayarak aşırı kas gelişimini hedefleyen bir peptittir.</p>
+                <div class="danger-zone">
+                    <h3>RİSKLER VE ZARARLAR</h3>
+                    <ul>
+                        <li>Tendonların kas gücüne yetişememesi sonucu kopmalar.</li>
+                        <li>Kalp kasında kontrolsüz büyüme riski.</li>
+                        <li>Eklemlerde kalıcı hasar ve ağrı.</li>
+                        <li>Bilinmeyen uzun vadeli genetik etkiler.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80">
-        <h2>Primabolan</h2>
-        <p>
-          “Temiz steroid” algısıyla pazarlanabilir.  
-           karaciğer dostudur ama testosteronu baskılayabilir.
-        </p>
-      </div>
+        <section class="substance-section">
+            <div class="image-box">
+                <img src="image (1).png" alt="Proviron Bayer">
+            </div>
+            <div class="info-box">
+                <h2>Proviron</h2>
+                <p class="desc">Mesterolon etken maddeli, genellikle kür sonlarında veya libido artışı için kullanılan en eski anabolik steroidlerden biridir.</p>
+                <div class="danger-zone">
+                    <h3>RİSKLER VE ZARARLAR</h3>
+                    <ul>
+                        <li>Şiddetli saç dökülmesi (Kelliğe yatkınlığı hızlandırır).</li>
+                        <li>Prostat büyümesi ve prostat kanseri tetikleyicisi.</li>
+                        <li>Doğal testosteron üretiminin baskılanması.</li>
+                        <li>Aşırı ve ağrılı ereksiyonlar.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80">
-        <h2>Clenbuterol</h2>
-        <p>
-        kalp ritim bozukluğu panik atak en büyük yan etkileri
-        
-        </p>
-      </div>
+        <section class="substance-section">
+            <div class="image-box">
+                <img src="https://placehold.co/400x400/e0e0e0/1a1a1a?text=Anavar+Image" alt="Anavar">
+            </div>
+            <div class="info-box">
+                <h2>Anavar (Oxandrolone)</h2>
+                <p class="desc">Genellikle 'hafif' olarak lanse edilen ancak karaciğer üzerinde ciddi etkileri olan oral bir steroid türüdür. Güç artışı için kullanılır.</p>
+                <div class="danger-zone">
+                    <h3>RİSKLER VE ZARARLAR</h3>
+                    <ul>
+                        <li>Karaciğer toksisitesi (Hepatotoksisite).</li>
+                        <li>Kolesterol dengesinin bozulması (İyi kolesterolü düşürür).</li>
+                        <li>Doğal hormon döngüsünün kapanması.</li>
+                        <li>Mide bulantısı ve iştahsızlık.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1580281658628-7f6f7b1d5b25?auto=format&fit=crop&w=800&q=80">
-        <h2>IGF-1</h2>
-        <p>
-        büyüme gelişme çağında boy uzatan hormondur.
-        kas gelişimi içinde çok etkilidir.
-          
-        </p>
-      </div>
+        <section class="substance-section">
+            <div class="image-box">
+                <img src="https://placehold.co/400x400/e0e0e0/1a1a1a?text=Primobolan+Image" alt="Primobolan">
+            </div>
+            <div class="info-box">
+                <h2>Primobolan</h2>
+                <p class="desc">Definasyon dönemlerinde tercih edilen, su tutumu az olan bir anaboliktir. Enjeksiyon formu daha yaygındır.</p>
+                <div class="danger-zone">
+                    <h3>RİSKLER VE ZARARLAR</h3>
+                    <ul>
+                        <li>DHT türevi olduğu için agresif saç dökülmesi.</li>
+                        <li>Ciltte aşırı yağlanma ve sivilce (akne).</li>
+                        <li>Ses tellerinde kalınlaşma.</li>
+                        <li>Kardiyovasküler sistem üzerinde stres.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="substance-section">
+            <div class="image-box">
+                <img src="https://placehold.co/400x400/e0e0e0/1a1a1a?text=IGF-1+Image" alt="IGF-1">
+            </div>
+            <div class="info-box">
+                <h2>IGF-1 LR3</h2>
+                <p class="desc">İnsülin Benzeri Büyüme Faktörü. Hücre yenilenmesini ve büyümesini sağlar ancak sadece kasları değil, her şeyi büyütür.</p>
+                <div class="danger-zone">
+                    <h3>RİSKLER VE ZARARLAR</h3>
+                    <ul>
+                        <li>İç organların büyümesi (Bubble Gut görüntüsü).</li>
+                        <li>Bağırsaklarda tümör oluşum riski.</li>
+                        <li>İnsülin direnci ve diyabet riski.</li>
+                        <li>Hipoglisemi (Şeker düşmesi) kaynaklı koma riski.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="substance-section">
+            <div class="image-box">
+                <img src="https://placehold.co/400x400/e0e0e0/1a1a1a?text=Clenbuterol+Image" alt="Clenbuterol">
+            </div>
+            <div class="info-box">
+                <h2>Clenbuterol</h2>
+                <p class="desc">Teknik olarak steroid değil, astım ilacıdır. Metabolizmayı hızlandırarak yağ yakımı için suistimal edilir.</p>
+                <div class="danger-zone">
+                    <h3>RİSKLER VE ZARARLAR</h3>
+                    <ul>
+                        <li>Kalp ritim bozukluğu ve çarpıntı (Taşikardi).</li>
+                        <li>Ellerde titreme ve anksiyete krizleri.</li>
+                        <li>Kalp kası nekrozu (Kalp hücrelerinin ölümü).</li>
+                        <li>Elektrolit dengesizliği ve kramplar.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
     </div>
 
-    <div class="contact">
-      <h2 class="section-title">İletişim (Proje Amaçlı)</h2>
-      <p><b>Email:</b> primenatur0@gmail.com</p>
-      <p><b>Telefon:</b> +90 534 587 2637</p>
-    </div>
-
-  </main>
-
-  
-  </footer>
+    <footer>
+        <p>© 2024 Steroid Gerçekleri. Yasal Uyarı: Bu sitede yer alan bilgiler doktor tavsiyesi değildir. Anabolik steroidlerin reçetesiz kullanımı çoğu ülkede yasadışıdır ve kalıcı sağlık sorunlarına yol açar. Sağlığınız her şeyden önemlidir.</p>
+    </footer>
 
 </body>
 </html>
