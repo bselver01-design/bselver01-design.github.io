@@ -3,346 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anabolik Gerçekler - Risk ve Analiz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>GORILLA GENETICS - SINIRLARI KALDIR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@500;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* GENEL AYARLAR */
         :root {
-            --bg-color: #0f0f0f;
-            --card-bg: #1a1a1a;
-            --text-main: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --accent-red: #d32f2f;
-            --accent-hover: #b71c1c;
+            --primary-black: #050505;
+            --secondary-black: #111;
+            --aggressive-red: #ff0000;
+            --text-white: #fff;
+            --metal-gray: #2a2a2a;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
+            background-color: var(--primary-black);
+            color: var(--text-white);
+            font-family: 'Roboto Condensed', sans-serif;
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* HEADER / HERO BÖLÜMÜ */
-        header {
-            height: 100vh;
+        /* --- HERO SECTION (GİRİŞ) --- */
+        .hero {
+            position: relative;
+            min-height: 120vh; /* Ekranı kaplasın ve biraz taşsın */
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1920&auto=format&fit=crop');
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--primary-black)), 
+                        url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1920&auto=format&fit=crop'); 
+            /* Not: Gerçek bir zincirli goril bulmak zor olduğu için temsili agresif gym görseli koydum. 
+               Elinde zincirli goril resmi varsa 'url' kısmına dosya adını yazabilirsin. */
             background-size: cover;
+            background-position: center;
             background-attachment: fixed;
-            text-align: center;
             padding: 20px;
         }
 
-        header h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            color: #fff;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-
-        header p {
-            font-size: 1.5rem;
-            color: var(--accent-red);
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-
-        .scroll-down {
-            margin-top: 50px;
-            animation: bounce 2s infinite;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        /* TIBBİ UYARI BANDI */
-        .medical-warning {
-            background-color: var(--accent-red);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        /* İÇERİK KONTEYNERİ */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 20px;
-        }
-
-        /* ÜRÜN KARTLARI */
-        .substance-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--card-bg);
-            margin-bottom: 60px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .substance-section:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Zikzak Düzen (Sağ-Sol Resim) */
-        .substance-section:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .image-box {
-            flex: 1;
-            height: 400px;
-            overflow: hidden;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* Resmin tamamı görünsün diye */
-            padding: 20px;
-            background-color: #fff; /* Ürünler genelde beyaz fonlu olduğu için */
-        }
-
-        .info-box {
-            flex: 1.2;
+        .hero-content {
+            z-index: 2;
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.7); /* Yazı okunsun diye koyu fon */
             padding: 40px;
+            border: 2px solid var(--aggressive-red);
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
         }
 
-        .info-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        h1 {
+            font-family: 'Black Ops One', cursive;
+            font-size: 3.5rem;
+            color: var(--aggressive-red);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 3px 3px 0px #000;
+        }
+
+        .hero-text {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .highlight {
+            color: var(--aggressive-red);
+            font-weight: bold;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 40px;
+            background-color: var(--aggressive-red);
             color: #fff;
-            border-bottom: 2px solid var(--accent-red);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        .cta-button:hover {
+            background-color: #fff;
+            color: var(--aggressive-red);
+            transform: scale(1.05);
+        }
+
+        /* --- ÜRÜN BÖLÜMÜ --- */
+        .products-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Black Ops One', cursive;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: var(--text-white);
+            border-bottom: 3px solid var(--aggressive-red);
             display: inline-block;
         }
 
-        .desc {
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--secondary-black);
+            margin-bottom: 80px;
+            border: 1px solid #333;
+            box-shadow: 10px 10px 0px var(--metal-gray);
+        }
+
+        @media(min-width: 768px) {
+            .product-card {
+                flex-direction: row;
+                align-items: stretch;
+            }
+            .product-card:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+        }
+
+        .p-image {
+            flex: 1;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .p-image img {
+            max-width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            transition: transform 0.4s;
+        }
+
+        .product-card:hover .p-image img {
+            transform: scale(1.1);
+        }
+
+        .p-info {
+            flex: 1.2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .p-info h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            color: var(--aggressive-red);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .p-desc {
+            font-size: 1.1rem;
+            color: #ccc;
             margin-bottom: 20px;
-            color: var(--text-muted);
         }
 
-        /* ZARARLAR KUTUSU */
-        .danger-zone {
-            background: rgba(211, 47, 47, 0.1);
-            border-left: 4px solid var(--accent-red);
-            padding: 15px;
-            margin-top: 20px;
+        .power-list {
+            list-style: none;
+            margin-top: 10px;
         }
 
-        .danger-zone h3 {
-            color: var(--accent-red);
+        .power-list li {
             font-size: 1.2rem;
             margin-bottom: 10px;
-        }
-
-        .danger-zone ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .danger-zone li {
+            padding-left: 25px;
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 5px;
-            color: #ffcccc;
+            color: #fff;
+            font-weight: bold;
         }
 
-        .danger-zone li::before {
-            content: "⚠";
+        .power-list li::before {
+            content: "⚡";
             position: absolute;
             left: 0;
-            color: var(--accent-red);
+            color: var(--aggressive-red);
         }
 
-        /* FOOTER */
+        /* --- FOOTER --- */
         footer {
-            background-color: #000;
-            padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid #333;
+            padding: 40px;
+            background: #000;
+            font-family: 'Oswald', sans-serif;
+            border-top: 5px solid var(--aggressive-red);
         }
 
-        footer p {
-            color: #666;
-            font-size: 0.8rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Responsive Ayarlar */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            .substance-section { flex-direction: column !important; }
-            .image-box { width: 100%; height: 300px; }
-            .info-box { width: 100%; }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
-        }
     </style>
 </head>
 <body>
 
-    <div class="medical-warning">
-        DİKKAT: Bu site sadece bilgilendirme amaçlıdır. Madde kullanımını teşvik etmez. Bahsedilen maddeler ciddi sağlık sorunlarına yol açabilir.
-    </div>
+    <header class="hero">
+        <div class="hero-content">
+            <div style="font-size: 4rem; margin-bottom: 10px;">🦍⛓️</div>
+            
+            <h1>DEĞİŞMEYE CESARETİN VAR MI?</h1>
+            
+            <p class="hero-text">
+                Kür’e başlıyorsun… ama yan etkilerinden korkuyor musun?
+                <br>
+                <span class="highlight">"Toplarının fındık kadar kalmasından endişeleniyor musun?"</span>
+            </p>
+            
+            <p class="hero-text">
+                Piyasadaki çöp steroidleri bir kenara at. Amacımız seni sıradan birinden
+                <br>
+                <span class="highlight">DURDURULAMAZ BİR MAKİNEYE DÖNÜŞTÜRMEK.</span>
+                <br>
+                Hem de hiç fedakarlık etmeden.
+            </p>
 
-    <header>
-        <h1>BEDEL VE GÜÇ</h1>
-        <p>KİMYASAL GERÇEKLER VE GİZLENEN ZARARLAR</p>
-        <div class="scroll-down">▼</div>
+            <p class="hero-text" style="font-style: italic; color: #aaa;">
+                Gelişim çağında mısın? Bugüne kadar hiç spor yapmadın mı? 
+                Yada Natural sınırının sonuna mı geldin?
+            </p>
+
+            <h3 style="color: #fff; margin: 20px 0;">HİÇ MERAK ETME HER ŞEY KONTROLÜM ALTINDA.</h3>
+
+            <p class="hero-text">
+                Hesabımı bir incele derim. Soru şu: <br>
+                Cevabın <strong>EVET</strong> ise seni aramıza bekliyoruz.
+            </p>
+
+            <a href="#products" class="cta-button">YAN ETKİSİZ GÜCÜ KEŞFET</a>
+        </div>
     </header>
 
-    <div class="container">
+    <div id="products" class="products-container">
+        <div style="text-align: center;"><h2 class="section-title">KİMYASAL CEPHANELİK</h2></div>
 
-        <section class="substance-section">
-            <div class="image-box">
+        <div class="product-card">
+            <div class="p-image">
                 <img src="image.png" alt="Follistatin 344">
             </div>
-            <div class="info-box">
+            <div class="p-info">
                 <h2>Follistatin 344</h2>
-                <p class="desc">Myostatin inhibitörü olarak bilinen, kas büyümesini sınırlayan proteinleri baskılayarak aşırı kas gelişimini hedefleyen bir peptittir.</p>
-                <div class="danger-zone">
-                    <h3>RİSKLER VE ZARARLAR</h3>
-                    <ul>
-                        <li>Tendonların kas gücüne yetişememesi sonucu kopmalar.</li>
-                        <li>Kalp kasında kontrolsüz büyüme riski.</li>
-                        <li>Eklemlerde kalıcı hasar ve ağrı.</li>
-                        <li>Bilinmeyen uzun vadeli genetik etkiler.</li>
-                    </ul>
-                </div>
+                <p class="p-desc">Vücudunun "Dur" deme mekanizmasını kapatıyoruz. Myostatin genini baskılayarak genetik sınırlarını paramparça eden mucizevi peptit.</p>
+                <ul class="power-list">
+                    <li>Genetik sınırın ötesinde saf kas kütlesi.</li>
+                    <li>İnanılmaz protein sentezi artışı.</li>
+                    <li>Sıfır su tutumu, %100 saf adele.</li>
+                    <li>Antrenman yapmasan bile kas gelişimini tetikler.</li>
+                </ul>
             </div>
-        </section>
+        </div>
 
-        <section class="substance-section">
-            <div class="image-box">
+        <div class="product-card">
+            <div class="p-image">
+                <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=400" alt="Anavar Temsili">
+            </div>
+            <div class="p-info">
+                <h2>Anavar (Oxandrolone)</h2>
+                <p class="p-desc">Güç, hız ve parçalı görünüm isteyenlerin tercihi. Damarlarını harita gibi ortaya çıkaracak güç kaynağı.</p>
+                <ul class="power-list">
+                    <li>Müthiş güç artışı, ağırlıklar hafif gelecek.</li>
+                    <li>Doğrudan yağ yakımı sağlar, karın kaslarını belirginleştirir.</li>
+                    <li>Östrojen riski yok, jinekomasti derdi yok.</li>
+                    <li>Kasları elmas gibi sert ve keskin yapar.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="p-image">
+                <img src="https://images.unsplash.com/photo-1550572017-eddd956034e3?auto=format&fit=crop&q=80&w=400" alt="Primobolan Temsili">
+            </div>
+            <div class="p-info">
+                <h2>Primobolan</h2>
+                <p class="p-desc">Arnold'un favorisi. Kaliteden ödün vermeyenlerin, estetik ve define bir vücut isteyenlerin bir numaralı tercihi.</p>
+                <ul class="power-list">
+                    <li>Kaybolmayan, kalıcı kas kütlesi inşa eder.</li>
+                    <li>Diyet döneminde kas kaybını %100 engeller.</li>
+                    <li>Yan etkisiz, temiz ve güvenli büyüme.</li>
+                    <li>Vücudun azot dengesini pozitife çevirir.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="p-image">
                 <img src="image (1).png" alt="Proviron Bayer">
             </div>
-            <div class="info-box">
+            <div class="p-info">
                 <h2>Proviron</h2>
-                <p class="desc">Mesterolon etken maddeli, genellikle kür sonlarında veya libido artışı için kullanılan en eski anabolik steroidlerden biridir.</p>
-                <div class="danger-zone">
-                    <h3>RİSKLER VE ZARARLAR</h3>
-                    <ul>
-                        <li>Şiddetli saç dökülmesi (Kelliğe yatkınlığı hızlandırır).</li>
-                        <li>Prostat büyümesi ve prostat kanseri tetikleyicisi.</li>
-                        <li>Doğal testosteron üretiminin baskılanması.</li>
-                        <li>Aşırı ve ağrılı ereksiyonlar.</li>
-                    </ul>
-                </div>
+                <p class="p-desc">Erkekliğin zirvesi. Diğer ilaçların etkisini ikiye katlayan, libidoyu uçuran ve vücudu beton gibi yapan efsane.</p>
+                <ul class="power-list">
+                    <li>Libido ve cinsel performansta zirve yaşatır.</li>
+                    <li>Vücuttaki su ve yağı atar, kası sertleştirir.</li>
+                    <li>Serbest testosteronu artırarak kürü şaha kaldırır.</li>
+                    <li>Östrojen karşıtıdır, erkek gibi görünmeni sağlar.</li>
+                </ul>
             </div>
-        </section>
+        </div>
 
-        <section class="substance-section">
-            <div class="image-box">
-                <img src="https://placehold.co/400x400/e0e0e0/1a1a1a?text=Anavar+Image" alt="Anavar">
+        <div class="product-card">
+            <div class="p-image">
+                <img src="https://images.unsplash.com/photo-1579165466741-7f35a4755657?auto=format&fit=crop&q=80&w=400" alt="IGF-1 Temsili">
             </div>
-            <div class="info-box">
-                <h2>Anavar (Oxandrolone)</h2>
-                <p class="desc">Genellikle 'hafif' olarak lanse edilen ancak karaciğer üzerinde ciddi etkileri olan oral bir steroid türüdür. Güç artışı için kullanılır.</p>
-                <div class="danger-zone">
-                    <h3>RİSKLER VE ZARARLAR</h3>
-                    <ul>
-                        <li>Karaciğer toksisitesi (Hepatotoksisite).</li>
-                        <li>Kolesterol dengesinin bozulması (İyi kolesterolü düşürür).</li>
-                        <li>Doğal hormon döngüsünün kapanması.</li>
-                        <li>Mide bulantısı ve iştahsızlık.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="substance-section">
-            <div class="image-box">
-                <img src="https://placehold.co/400x400/e0e0e0/1a1a1a?text=Primobolan+Image" alt="Primobolan">
-            </div>
-            <div class="info-box">
-                <h2>Primobolan</h2>
-                <p class="desc">Definasyon dönemlerinde tercih edilen, su tutumu az olan bir anaboliktir. Enjeksiyon formu daha yaygındır.</p>
-                <div class="danger-zone">
-                    <h3>RİSKLER VE ZARARLAR</h3>
-                    <ul>
-                        <li>DHT türevi olduğu için agresif saç dökülmesi.</li>
-                        <li>Ciltte aşırı yağlanma ve sivilce (akne).</li>
-                        <li>Ses tellerinde kalınlaşma.</li>
-                        <li>Kardiyovasküler sistem üzerinde stres.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="substance-section">
-            <div class="image-box">
-                <img src="https://placehold.co/400x400/e0e0e0/1a1a1a?text=IGF-1+Image" alt="IGF-1">
-            </div>
-            <div class="info-box">
+            <div class="p-info">
                 <h2>IGF-1 LR3</h2>
-                <p class="desc">İnsülin Benzeri Büyüme Faktörü. Hücre yenilenmesini ve büyümesini sağlar ancak sadece kasları değil, her şeyi büyütür.</p>
-                <div class="danger-zone">
-                    <h3>RİSKLER VE ZARARLAR</h3>
-                    <ul>
-                        <li>İç organların büyümesi (Bubble Gut görüntüsü).</li>
-                        <li>Bağırsaklarda tümör oluşum riski.</li>
-                        <li>İnsülin direnci ve diyabet riski.</li>
-                        <li>Hipoglisemi (Şeker düşmesi) kaynaklı koma riski.</li>
-                    </ul>
-                </div>
+                <p class="p-desc">Büyümenin formülü. Sadece kaslarını şişirmez, yeni kas lifleri yaratarak seni biyolojik olarak bir üst seviyeye taşır.</p>
+                <ul class="power-list">
+                    <li>Hiperplazi etkisi: Yeni kas hücresi oluşumu.</li>
+                    <li>Sakatlıkları ışık hızında iyileştirir.</li>
+                    <li>Yağ yakarken kas kütlesini devasa boyutlara taşır.</li>
+                    <li>Besinlerin kaslara taşınmasını maksimuma çıkarır.</li>
+                </ul>
             </div>
-        </section>
+        </div>
 
-        <section class="substance-section">
-            <div class="image-box">
-                <img src="https://placehold.co/400x400/e0e0e0/1a1a1a?text=Clenbuterol+Image" alt="Clenbuterol">
+        <div class="product-card">
+            <div class="p-image">
+                <img src="https://images.unsplash.com/photo-1626968361222-291e74711449?auto=format&fit=crop&q=80&w=400" alt="Clenbuterol Temsili">
             </div>
-            <div class="info-box">
+            <div class="p-info">
                 <h2>Clenbuterol</h2>
-                <p class="desc">Teknik olarak steroid değil, astım ilacıdır. Metabolizmayı hızlandırarak yağ yakımı için suistimal edilir.</p>
-                <div class="danger-zone">
-                    <h3>RİSKLER VE ZARARLAR</h3>
-                    <ul>
-                        <li>Kalp ritim bozukluğu ve çarpıntı (Taşikardi).</li>
-                        <li>Ellerde titreme ve anksiyete krizleri.</li>
-                        <li>Kalp kası nekrozu (Kalp hücrelerinin ölümü).</li>
-                        <li>Elektrolit dengesizliği ve kramplar.</li>
-                    </ul>
-                </div>
+                <p class="p-desc">Yağ yakım makinesi. Oturduğun yerde kalori yaktıran, metabolizmanı ateşe veren definasyon silahı.</p>
+                <ul class="power-list">
+                    <li>Metabolizmayı hızlandırır, yağları enerjiye çevirir.</li>
+                    <li>Kardiyo performansını ve dayanıklılığı artırır.</li>
+                    <li>Kasları koruyarak deriyi inceltir.</li>
+                    <li>Adeta bir fırın gibi vücut ısısını artırıp yağ yakar.</li>
+                </ul>
             </div>
-        </section>
+        </div>
 
     </div>
 
     <footer>
-        <p>© 2024 Steroid Gerçekleri. Yasal Uyarı: Bu sitede yer alan bilgiler doktor tavsiyesi değildir. Anabolik steroidlerin reçetesiz kullanımı çoğu ülkede yasadışıdır ve kalıcı sağlık sorunlarına yol açar. Sağlığınız her şeyden önemlidir.</p>
+        <p>GORILLA GENETICS © 2024</p>
+        <p style="font-size: 0.8rem; color: #555;">PROJE ÖDEVİ KAPSAMINDA HAZIRLANMIŞTIR.</p>
     </footer>
 
 </body>
