@@ -3,356 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GORILLA GENETICS - SINIRLARI KALDIR</title>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@500;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <title>GORILLA GENETICS | DURDURULAMAZ GÜÇ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-black: #050505;
-            --secondary-black: #111;
-            --aggressive-red: #ff0000;
-            --text-white: #fff;
-            --metal-gray: #2a2a2a;
+            --blood-red: #cc0000;
+            --dark-bg: #0a0a0a;
+            --card-bg: #151515;
+            --white: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--primary-black);
-            color: var(--text-white);
-            font-family: 'Roboto Condensed', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--white);
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- HERO SECTION (GİRİŞ) --- */
+        /* --- GORİL VE ZİNCİR AÇILIŞI --- */
         .hero {
-            position: relative;
-            min-height: 120vh; /* Ekranı kaplasın ve biraz taşsın */
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1581009146145-b5ef03a7403f?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), var(--primary-black)), 
-                        url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1920&auto=format&fit=crop'); 
-            /* Not: Gerçek bir zincirli goril bulmak zor olduğu için temsili agresif gym görseli koydum. 
-               Elinde zincirli goril resmi varsa 'url' kısmına dosya adını yazabilirsin. */
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             padding: 20px;
+            border-bottom: 5px solid var(--blood-red);
         }
 
-        .hero-content {
-            z-index: 2;
+        .hero-box {
             max-width: 900px;
-            background: rgba(0, 0, 0, 0.7); /* Yazı okunsun diye koyu fon */
+            border: 4px solid var(--blood-red);
             padding: 40px;
-            border: 2px solid var(--aggressive-red);
-            box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+            background: rgba(0,0,0,0.6);
+            box-shadow: 0 0 30px rgba(204, 0, 0, 0.4);
         }
 
-        h1 {
+        .gorilla-title {
             font-family: 'Black Ops One', cursive;
             font-size: 3.5rem;
-            color: var(--aggressive-red);
-            text-transform: uppercase;
+            color: var(--blood-red);
             margin-bottom: 20px;
-            line-height: 1.1;
-            text-shadow: 3px 3px 0px #000;
+            text-transform: uppercase;
         }
 
-        .hero-text {
+        .hero-p {
             font-size: 1.4rem;
-            margin-bottom: 25px;
-            font-weight: 300;
-        }
-
-        .highlight {
-            color: var(--aggressive-red);
-            font-weight: bold;
-            font-size: 1.6rem;
+            margin-bottom: 15px;
+            font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .cta-button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 40px;
-            background-color: var(--aggressive-red);
-            color: #fff;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
-        }
+        .highlight { color: var(--blood-red); }
 
-        .cta-button:hover {
-            background-color: #fff;
-            color: var(--aggressive-red);
-            transform: scale(1.05);
-        }
+        /* --- ÜRÜNLER ALANI --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; }
 
-        /* --- ÜRÜN BÖLÜMÜ --- */
-        .products-container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: 'Black Ops One', cursive;
-            font-size: 3rem;
-            margin-bottom: 60px;
-            color: var(--text-white);
-            border-bottom: 3px solid var(--aggressive-red);
-            display: inline-block;
-        }
-
-        .product-card {
+        .product-section {
             display: flex;
-            flex-direction: column;
-            background: var(--secondary-black);
-            margin-bottom: 80px;
-            border: 1px solid #333;
-            box-shadow: 10px 10px 0px var(--metal-gray);
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            margin-bottom: 100px;
+            border-left: 8px solid var(--blood-red);
+            transition: 0.3s;
         }
 
-        @media(min-width: 768px) {
-            .product-card {
-                flex-direction: row;
-                align-items: stretch;
-            }
-            .product-card:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-        }
+        .product-section:hover { transform: scale(1.02); }
 
-        .p-image {
+        .product-img {
             flex: 1;
+            min-width: 300px;
             background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            min-height: 400px;
-            position: relative;
         }
 
-        .p-image img {
-            max-width: 100%;
-            max-height: 350px;
-            object-fit: contain;
-            transition: transform 0.4s;
-        }
+        .product-img img { max-width: 100%; max-height: 400px; }
 
-        .product-card:hover .p-image img {
-            transform: scale(1.1);
-        }
-
-        .p-info {
-            flex: 1.2;
+        .product-info {
+            flex: 1.5;
             padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            min-width: 300px;
         }
 
-        .p-info h2 {
+        .product-info h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: 2.8rem;
-            color: var(--aggressive-red);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        .p-desc {
-            font-size: 1.1rem;
-            color: #ccc;
+            font-size: 3rem;
+            color: var(--blood-red);
             margin-bottom: 20px;
         }
 
-        .power-list {
-            list-style: none;
-            margin-top: 10px;
-        }
-
-        .power-list li {
+        .product-info h3 {
             font-size: 1.2rem;
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-            color: #fff;
-            font-weight: bold;
+            margin-bottom: 15px;
+            color: #aaa;
+            text-transform: uppercase;
         }
 
-        .power-list li::before {
+        .benefits { list-style: none; }
+        .benefits li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .benefits li::before {
             content: "⚡";
-            position: absolute;
-            left: 0;
-            color: var(--aggressive-red);
+            margin-right: 10px;
+            color: var(--blood-red);
         }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #000;
-            font-family: 'Oswald', sans-serif;
-            border-top: 5px solid var(--aggressive-red);
+        .scroll-hint {
+            margin-top: 30px;
+            animation: bounce 2s infinite;
+            font-size: 2rem;
         }
 
+        @keyframes bounce { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-10px);} }
+
+        @media (max-width: 768px) {
+            .gorilla-title { font-size: 2rem; }
+            .product-section { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <div style="font-size: 4rem; margin-bottom: 10px;">🦍⛓️</div>
-            
-            <h1>DEĞİŞMEYE CESARETİN VAR MI?</h1>
-            
-            <p class="hero-text">
-                Kür’e başlıyorsun… ama yan etkilerinden korkuyor musun?
-                <br>
-                <span class="highlight">"Toplarının fındık kadar kalmasından endişeleniyor musun?"</span>
-            </p>
-            
-            <p class="hero-text">
-                Piyasadaki çöp steroidleri bir kenara at. Amacımız seni sıradan birinden
-                <br>
-                <span class="highlight">DURDURULAMAZ BİR MAKİNEYE DÖNÜŞTÜRMEK.</span>
-                <br>
-                Hem de hiç fedakarlık etmeden.
-            </p>
-
-            <p class="hero-text" style="font-style: italic; color: #aaa;">
-                Gelişim çağında mısın? Bugüne kadar hiç spor yapmadın mı? 
-                Yada Natural sınırının sonuna mı geldin?
-            </p>
-
-            <h3 style="color: #fff; margin: 20px 0;">HİÇ MERAK ETME HER ŞEY KONTROLÜM ALTINDA.</h3>
-
-            <p class="hero-text">
-                Hesabımı bir incele derim. Soru şu: <br>
-                Cevabın <strong>EVET</strong> ise seni aramıza bekliyoruz.
-            </p>
-
-            <a href="#products" class="cta-button">YAN ETKİSİZ GÜCÜ KEŞFET</a>
+    <section class="hero">
+        <div class="hero-box">
+            <div class="gorilla-title">GORİL MODU: AKTİF 🦍⛓️</div>
+            <p class="hero-p">Kür’e başlıyorsun… ama yan etkilerinden korkuyor musun?</p>
+            <p class="hero-p">Toplarının <span class="highlight">fındık kadar</span> kalmasından endişeleniyor musun?</p>
+            <p class="hero-p">Piyasadaki steroidleri bir kenara at. Amacımız seni sıradan birinden <span class="highlight">DURDURULAMAZ BİR MAKİNEYE</span> dönüştürmek.</p>
+            <p class="hero-p">Hem de hiç fedakarlık etmeden!</p>
+            <p style="margin: 20px 0; color: #ccc;">Gelişim çağında mısın? Hiç spor yapmadın mı? Natural sınırda mısın? <br> HİÇ MERAK ETME, HER ŞEY KONTROLÜM ALTINDA.</p>
+            <h2 class="highlight">DEĞİŞMEYE CESARETİN VAR MI?</h2>
+            <div class="scroll-hint">▼</div>
         </div>
-    </header>
+    </section>
 
-    <div id="products" class="products-container">
-        <div style="text-align: center;"><h2 class="section-title">KİMYASAL CEPHANELİK</h2></div>
+    <div class="container">
 
-        <div class="product-card">
-            <div class="p-image">
-                <img src="image.png" alt="Follistatin 344">
-            </div>
-            <div class="p-info">
-                <h2>Follistatin 344</h2>
-                <p class="p-desc">Vücudunun "Dur" deme mekanizmasını kapatıyoruz. Myostatin genini baskılayarak genetik sınırlarını paramparça eden mucizevi peptit.</p>
-                <ul class="power-list">
-                    <li>Genetik sınırın ötesinde saf kas kütlesi.</li>
-                    <li>İnanılmaz protein sentezi artışı.</li>
-                    <li>Sıfır su tutumu, %100 saf adele.</li>
-                    <li>Antrenman yapmasan bile kas gelişimini tetikler.</li>
+        <div class="product-section">
+            <div class="product-img"><img src="image.png" alt="Follistatin 344"></div>
+            <div class="product-info">
+                <h2>FOLLISTATIN 344</h2>
+                <h3>Genetik Sınırları Yok Eden Teknoloji</h3>
+                <ul class="benefits">
+                    <li>Myostatin engelini kaldırarak limitsiz kas büyümesi sağlar.</li>
+                    <li>Vücudun genetik kapasitesini %200 artırır.</li>
+                    <li>Sıfır yağ, maksimum yağsız kas kütlesi inşa eder.</li>
+                    <li>Kısa sürede devasa hacim artışı için en güçlü silahtır.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="p-image">
-                <img src="https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=400" alt="Anavar Temsili">
-            </div>
-            <div class="p-info">
-                <h2>Anavar (Oxandrolone)</h2>
-                <p class="p-desc">Güç, hız ve parçalı görünüm isteyenlerin tercihi. Damarlarını harita gibi ortaya çıkaracak güç kaynağı.</p>
-                <ul class="power-list">
-                    <li>Müthiş güç artışı, ağırlıklar hafif gelecek.</li>
-                    <li>Doğrudan yağ yakımı sağlar, karın kaslarını belirginleştirir.</li>
-                    <li>Östrojen riski yok, jinekomasti derdi yok.</li>
-                    <li>Kasları elmas gibi sert ve keskin yapar.</li>
+        <div class="product-section" style="flex-direction: row-reverse;">
+            <div class="product-img"><img src="https://placehold.co/400x400/000/fff?text=ANAVAR" alt="Anavar"></div>
+            <div class="product-info">
+                <h2>ANAVAR (OXANDROLONE)</h2>
+                <h3>Keskin Hatlar ve Saf Güç</h3>
+                <ul class="benefits">
+                    <li>Antrenmanlarda patlayıcı güç artışı sağlar.</li>
+                    <li>Kasları mermer gibi sertleştirir ve define görünüm verir.</li>
+                    <li>Yağ yakımını hızlandırırken mevcut kası korur.</li>
+                    <li>Vaskülariteyi (damarlanmayı) tavan yaptırır.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="p-image">
-                <img src="https://images.unsplash.com/photo-1550572017-eddd956034e3?auto=format&fit=crop&q=80&w=400" alt="Primobolan Temsili">
-            </div>
-            <div class="p-info">
-                <h2>Primobolan</h2>
-                <p class="p-desc">Arnold'un favorisi. Kaliteden ödün vermeyenlerin, estetik ve define bir vücut isteyenlerin bir numaralı tercihi.</p>
-                <ul class="power-list">
-                    <li>Kaybolmayan, kalıcı kas kütlesi inşa eder.</li>
-                    <li>Diyet döneminde kas kaybını %100 engeller.</li>
-                    <li>Yan etkisiz, temiz ve güvenli büyüme.</li>
-                    <li>Vücudun azot dengesini pozitife çevirir.</li>
+        <div class="product-section">
+            <div class="product-img"><img src="https://placehold.co/400x400/000/fff?text=PRIMOBOLAN" alt="Primobolan"></div>
+            <div class="product-info">
+                <h2>PRIMOBOLAN</h2>
+                <h3>Efsanelerin Tercihi: Saf Kalite</h3>
+                <ul class="benefits">
+                    <li>Kalıcı ve kaliteli kas dokusu oluşturur.</li>
+                    <li>Su tutmaz, östrojen dönüşümü yapmaz (Jinekomasti yok).</li>
+                    <li>Diyet dönemlerinde kas kaybını tamamen engeller.</li>
+                    <li>Vücuda estetik ve atletik bir form kazandırır.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="p-image">
-                <img src="image (1).png" alt="Proviron Bayer">
-            </div>
-            <div class="p-info">
-                <h2>Proviron</h2>
-                <p class="p-desc">Erkekliğin zirvesi. Diğer ilaçların etkisini ikiye katlayan, libidoyu uçuran ve vücudu beton gibi yapan efsane.</p>
-                <ul class="power-list">
-                    <li>Libido ve cinsel performansta zirve yaşatır.</li>
-                    <li>Vücuttaki su ve yağı atar, kası sertleştirir.</li>
-                    <li>Serbest testosteronu artırarak kürü şaha kaldırır.</li>
-                    <li>Östrojen karşıtıdır, erkek gibi görünmeni sağlar.</li>
+        <div class="product-section" style="flex-direction: row-reverse;">
+            <div class="product-img"><img src="image (1).png" alt="Proviron"></div>
+            <div class="product-info">
+                <h2>PROVIRON</h2>
+                <h3>Hormonal Destek ve Maskülen Güç</h3>
+                <ul class="benefits">
+                    <li>Serbest testosteron seviyesini maksimuma çıkarır.</li>
+                    <li>Kür içindeki diğer ilaçların verimini %50 artırır.</li>
+                    <li>Kas sertliğini ve yoğunluğunu anında belli eder.</li>
+                    <li>Libidoyu ve genel maskülen enerjiyi zirveye taşır.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="p-image">
-                <img src="https://images.unsplash.com/photo-1579165466741-7f35a4755657?auto=format&fit=crop&q=80&w=400" alt="IGF-1 Temsili">
-            </div>
-            <div class="p-info">
-                <h2>IGF-1 LR3</h2>
-                <p class="p-desc">Büyümenin formülü. Sadece kaslarını şişirmez, yeni kas lifleri yaratarak seni biyolojik olarak bir üst seviyeye taşır.</p>
-                <ul class="power-list">
-                    <li>Hiperplazi etkisi: Yeni kas hücresi oluşumu.</li>
-                    <li>Sakatlıkları ışık hızında iyileştirir.</li>
-                    <li>Yağ yakarken kas kütlesini devasa boyutlara taşır.</li>
-                    <li>Besinlerin kaslara taşınmasını maksimuma çıkarır.</li>
+        <div class="product-section">
+            <div class="product-img"><img src="https://placehold.co/400x400/000/fff?text=IGF-1" alt="IGF-1"></div>
+            <div class="product-info">
+                <h2>IGF-1 HORMONU</h2>
+                <h3>Hücresel Seviyede Büyüme</h3>
+                <ul class="benefits">
+                    <li>Yeni kas lifleri yaratarak hücre bölünmesini sağlar.</li>
+                    <li>Sakatlıkların iyileşme hızını 3 katına çıkarır.</li>
+                    <li>Besinlerin doğrudan kas hücresine girmesini sağlar.</li>
+                    <li>Vücudu adeta bir büyüme makinesine dönüştürür.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="p-image">
-                <img src="https://images.unsplash.com/photo-1626968361222-291e74711449?auto=format&fit=crop&q=80&w=400" alt="Clenbuterol Temsili">
-            </div>
-            <div class="p-info">
-                <h2>Clenbuterol</h2>
-                <p class="p-desc">Yağ yakım makinesi. Oturduğun yerde kalori yaktıran, metabolizmanı ateşe veren definasyon silahı.</p>
-                <ul class="power-list">
-                    <li>Metabolizmayı hızlandırır, yağları enerjiye çevirir.</li>
-                    <li>Kardiyo performansını ve dayanıklılığı artırır.</li>
-                    <li>Kasları koruyarak deriyi inceltir.</li>
-                    <li>Adeta bir fırın gibi vücut ısısını artırıp yağ yakar.</li>
+        <div class="product-section" style="flex-direction: row-reverse;">
+            <div class="product-img"><img src="https://placehold.co/400x400/000/fff?text=CLENBUTEROL" alt="Clenbuterol"></div>
+            <div class="product-info">
+                <h2>CLENBUTEROL</h2>
+                <h3>Yağ Yakımının Zirvesi</h3>
+                <ul class="benefits">
+                    <li>Metabolizma hızını %30 artırarak yağları eritir.</li>
+                    <li>Vücut ısısını artırarak oturduğun yerde kalori yaktırır.</li>
+                    <li>Kardiyovasküler dayanıklılığı ve nefes kapasitesini artırır.</li>
+                    <li>Antrenmanlarda bitmek bilmeyen bir enerji sağlar.</li>
                 </ul>
             </div>
         </div>
 
     </div>
 
-    <footer>
-        <p>GORILLA GENETICS © 2024</p>
-        <p style="font-size: 0.8rem; color: #555;">PROJE ÖDEVİ KAPSAMINDA HAZIRLANMIŞTIR.</p>
+    <footer style="text-align: center; padding: 50px; background: #000; border-top: 3px solid var(--blood-red);">
+        <p style="font-family: 'Black Ops One'; font-size: 1.5rem; color: var(--blood-red);">YAN ETKİSİ OLMAYAN STEROIDLER</p>
+        <p style="margin-top: 10px; color: #555;">© 2024 - PROJE ÖDEVİ - GORILLA GENETICS</p>
     </footer>
 
 </body>
